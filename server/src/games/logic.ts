@@ -1,11 +1,10 @@
-import { ValidatorConstraint, ValidatorConstraintInterface } from 'class-validator'
+//import { ValidatorConstraint, ValidatorConstraintInterface } from 'class-validator'
 import { Board, Symbol, Row } from './entities'
 /*
 export const checkIfTie = (row) => {
   if (!row.includes('x')) return true
   else return false
 }
-
 
 export const rowWinCheck = (row) => {
 const findNull = (row) => {
@@ -42,7 +41,7 @@ export const checkBoardWin = (board) => {
   else if (winCount < 0) {return 'o'}
 }*/
 
-
+/*
 @ValidatorConstraint()
 export class IsBoard implements ValidatorConstraintInterface {
 
@@ -55,7 +54,7 @@ export class IsBoard implements ValidatorConstraintInterface {
       )
   }
 }
-
+*/
 
 export const isValidTransition = (playerSymbol: Symbol, from: Board, to: Board) => {
   const changes = from
