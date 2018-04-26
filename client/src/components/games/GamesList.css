@@ -1,3 +1,6 @@
+h1 {
+  color: rgb(209, 126, 30);
+}
 h2 {
   margin-bottom: 16px;
   font-size: 14px;
@@ -16,4 +19,26 @@ h2 {
   margin-top: 20px;
   padding: 20px;
   width: 60%;
+  
+}
+
+.button {
+  -moz-box-shadow: inset -3px -3px 10px #cc870a;
+  -webkit-box-shadow: inset -3px -3px 10px #cc870a;
+  box-shadow: inset -3px -3px 10px #cc870a;
+  background-color: #f7b31c; /* Fill color */
+  color: white; /* Text color */
+  border-radius: 15px; /* Rounded button edges */
+  font-style: italic; /* Italicize text */
+  padding: 10px 30px; /* Distance between text and border */
+}
+body {
+  background-image: url(https://acculturated.com/wp-content/uploads/2015/12/0-40-paper-scissors-rock-logos.jpg);
+  background-color: #cccccc;
+  text-align: center;
+  font-family: Verdana, Times, serif;
+}
+
+.text {
+  color: white;
 }

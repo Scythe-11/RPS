@@ -29,8 +29,8 @@ export const isValidTransition = (playerSymbol: Symbol, from: Board, to: Board) 
 }
 */
 export const checkIfTie = (board) => {
-  if (board.includes('x')) return false
-  else return true
+  if (!board.includes('x')) return true
+  else return false
 }
 
 export const rowWinCheck = (board) => {
@@ -58,7 +58,7 @@ return winRow
 export const calculateWinner = (board: Board): Symbol | null => {
   debugger;
   let result
-  if (checkIfTie(board) === false) result = null
+  if (checkIfTie(board) === true) result = null
   else result = rowWinCheck(board)
   if (!result && checkIfTie(board) === false) result = "ERROR"
   return result

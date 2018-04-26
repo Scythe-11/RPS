@@ -19,15 +19,15 @@ class GameDetails extends PureComponent {
 
   joinGame = () => this.props.joinGame(this.props.game.id)
 
-  makeMove = (toRow, toCell) => {
+  makeMove = (toCell) => {
     const {game, updateGame} = this.props
 
     const board = game.board.map(
-      (row, rowIndex) => row.map((cell, cellIndex) => {
-        if (rowIndex === toRow && cellIndex === toCell) return game.turn
+      (cell, cellIndex) => {
+        if (cellIndex === toCell) return game.turn
         else return cell
       })
-    )
+      
     updateGame(game.id, board)
   }
 
@@ -72,7 +72,7 @@ class GameDetails extends PureComponent {
       }
 
       <hr />
-      <p> Rock Paper Scissors</p>
+      <p> Rock   Paper   Scissors</p>
 
       {
         game.status !== 'pending' &&

@@ -104,9 +104,7 @@ export default class GameController {
       game.winner = winner
       game.status = 'finished'
     }
-    else if (winner === null && player.symbol === 'o') {
-      console.log(game.turn)
-      console.log(winner)
+    else if (winner === null && (player.symbol !== 'x')) {
       game.status = 'finished' // if its a draw
     }
     else {
