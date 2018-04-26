@@ -16,6 +16,6 @@ const renderCel = (makeMove, cellIndex, symbol, hasTurn) => {
 
 export default ({board, makeMove}) => board.map((symbol, cellIndex) =>
   <span key={cellIndex}> 
-    {renderCel(makeMove, cellIndex, symbol,false)}
+    {renderCel(makeMove, cellIndex, symbol,false)} &nbsp; &nbsp;
   </span>
 )
