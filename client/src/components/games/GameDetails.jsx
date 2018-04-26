@@ -72,7 +72,7 @@ class GameDetails extends PureComponent {
       }
 
       <hr />
-      <p> Rock   Paper   Scissors</p>
+      <p> &nbsp; Rock &nbsp; &nbsp; &nbsp; Paper &nbsp; &nbsp; Scissors</p>
 
       {
         game.status !== 'pending' &&

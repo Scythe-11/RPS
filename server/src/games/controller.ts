@@ -104,7 +104,7 @@ export default class GameController {
       game.winner = winner
       game.status = 'finished'
     }
-    else if (winner === null && (player.symbol !== 'x')) {
+    else if (winner === null && (game.turn !== 'x')) {
       game.status = 'finished' // if its a draw
     }
     else {

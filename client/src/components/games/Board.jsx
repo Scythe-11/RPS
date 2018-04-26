@@ -9,11 +9,13 @@ const renderCel = (makeMove, cellIndex, symbol, hasTurn) => {
       onClick={() => makeMove(cellIndex)}
       key={`${cellIndex}`}
     >{symbol || '-'}</button>
-  )
+  ) 
+  debugger;
 }
 
-export default ({board, makeMove}) => board.map((cells, cellIndex) =>
-  <div key={cellIndex}>  
-    {board.map((symbol, cellIndex) => renderCel(makeMove, cellIndex, symbol,false))}
-  </div>
+
+export default ({board, makeMove}) => board.map((symbol, cellIndex) =>
+  <span key={cellIndex}> 
+    {renderCel(makeMove, cellIndex, symbol,false)}
+  </span>
 )
