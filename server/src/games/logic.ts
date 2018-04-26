@@ -1,19 +1,17 @@
-//import { ValidatorConstraint, ValidatorConstraintInterface } from 'class-validator'
+import { ValidatorConstraint, ValidatorConstraintInterface } from 'class-validator'
 import { Board, Symbol } from './entities'
-/*
+
 @ValidatorConstraint()
 export class IsBoard implements ValidatorConstraintInterface {
 
   validate(board: Board) {
     const symbols = [ 'x', 'o', null ]
     return board.length === 3 &&
-      board.every(row =>
-        row.length === 3 &&
-        row.every(symbol => symbols.includes(symbol))
-      )
+      board.every(symbol => symbols.includes(symbol))
+      
   }
 }
-
+/*
 export const isValidTransition = (playerSymbol: Symbol, from: Board, to: Board) => {
   const changes = from
     .map(
@@ -30,34 +28,39 @@ export const isValidTransition = (playerSymbol: Symbol, from: Board, to: Board) 
     changes[0].from === null
 }
 */
-
 export const checkIfTie = (board) => {
-  if (!board.includes('x')) return true
-  else return false
+  if (board.includes('x')) return false
+  else return true
 }
 
 export const rowWinCheck = (board) => {
 const findNull = (board) => {
     return (3 - board.indexOf('x') - board.indexOf('o'))
 }
-let winner
+let winRow
 switch(findNull(board)){
   case 0:
-    winner = board[2]
+    winRow = board[2]
     break;
   case 1:
-    winner = board[0]
+    winRow = board[0]
     break;
   case 2:
-    winner = board[1]
+    winRow = board[1]
     break;
+
+  default:
+    winRow = null
 }
-return winner
+return winRow
 }
 
 export const calculateWinner = (board: Board): Symbol | null => {
-let result
-  if (checkIfTie(board) === true) result = null
+  debugger;
+  let result
+  if (checkIfTie(board) === false) result = null
   else result = rowWinCheck(board)
+  if (!result && checkIfTie(board) === false) result = "ERROR"
   return result
+  
 }

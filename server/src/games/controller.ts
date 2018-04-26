@@ -4,15 +4,15 @@ import {
 } from 'routing-controllers'
 import User from '../users/entity'
 import { Game, Player, Board } from './entities'
-import { calculateWinner} from './logic'
-//import { Validate } from 'class-validator'
+import {IsBoard, calculateWinner } from './logic'
+import { Validate } from 'class-validator'
 import {io} from '../index'
 
 class GameUpdate {
-/*
+
   @Validate(IsBoard, {
     message: 'Not a valid board'
-  })*/
+  })
   board: Board
 }
 
@@ -91,17 +91,22 @@ export default class GameController {
     if (player.symbol !== game.turn) throw new BadRequestError(`It's not your turn`)
     /*if (!isValidTransition(player.symbol, game.board, update.board)) {
       throw new BadRequestError(`Invalid move`)
-    }  */  
-
+    }   
+    */
     console.log('2')
 
     const winner = calculateWinner(update.board)
 
-    if (winner) {
+    if (winner && player.symbol === 'o') {
+      debugger;
+      console.log(game.turn)
+      console.log(winner)
       game.winner = winner
       game.status = 'finished'
     }
-    else if (winner === null) {
+    else if (winner === null && player.symbol === 'o') {
+      console.log(game.turn)
+      console.log(winner)
       game.status = 'finished' // if its a draw
     }
     else {

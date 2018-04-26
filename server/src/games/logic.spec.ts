@@ -10,9 +10,16 @@ describe('checkIfTie()', () => {
   })
 })
 
+describe('checkIfTie()', () => {
+  it('testing that it returns false', () => {
+    const board: Board = ['x', null, null]
+    equal(checkIfTie(board), false)
+  })
+})
+
 describe('rowWinCheck()', () => {
 
-  it('testing that it returns x', () => {
+  it('testing that it returns "x"', () => {
     const board: Board = [null , 'o', 'x']
 
     equal(rowWinCheck(board), 'x')
@@ -20,12 +27,18 @@ describe('rowWinCheck()', () => {
 })
 
 describe('calculateWinner()', () => {
-  it('testing that it returns draw "d" ', () => {
+  it('testing that it returns "null" ', () => {
     const board: Board = [null, 'o', null]
-    equal(calculateWinner(board), 'd')
+    equal(calculateWinner(board), null)
   })
 })
 
+describe('calculateWinner()', () => {
+  it('testing that it returns "ERROR" ', () => {
+    const board: Board = [null, 'x', null]
+    equal(calculateWinner(board), 'ERROR')
+  })
+})
 
 
 describe('calculateWinner()', () => {
@@ -45,6 +58,13 @@ describe('calculateWinner()', () => {
 describe('calculateWinner()', () => {
   it('testing that it returns "x" ', () => {
     const board: Board = ['x', 'o', null]
+    equal(calculateWinner(board), 'o') // returns o
+  })
+})
+
+describe('calculateWinner()', () => {
+  it('testing that it returns "o" ', () => {
+    const board: Board = ['o', null , 'x']
     equal(calculateWinner(board), 'o') // returns o
   })
 })
